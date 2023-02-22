@@ -58,14 +58,27 @@ arrowUp.addEventListener('click', () => {
   scrollIntoView('#home');
 });
 
-
-
-
-
-
-
-
-
+//Projects
+const workBtnContainer = document.querySelector('.work__categories');
+const ProjectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+workBtnContainer.addEventListener('click', (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  if(filter == null) {
+    return;
+  }
+  ProjectContainer.classList.add('anm-out');        
+  setTimeout(() => {
+    projects.forEach((project) => {
+      if(filter === '*' || filter === project.dataset.type) {
+        project.classList.remove('invisible');
+      } else {
+        project.classList.add('invisible');
+      }
+    });
+    ProjectContainer.classList.remove('anm-out'); 
+  }, 300);
+});
 
 
 
@@ -83,4 +96,3 @@ function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({behavior: 'smooth'});
 };
-
