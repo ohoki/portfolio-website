@@ -58,8 +58,18 @@ arrowUp.addEventListener('click', () => {
   scrollIntoView('#home');
 });
 
-//Projects
+//Remove selection from the previous item and select the new one
 const workBtnContainer = document.querySelector('.work__categories');
+workBtnContainer.addEventListener('click', (e) => {
+  const select = document.querySelector('.category__btn.selected');
+  select.classList.remove('selected');
+  const target =
+  e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+  target.classList.add('selected');
+  }
+);
+
+//Projects
 const ProjectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
 workBtnContainer.addEventListener('click', (e) => {
@@ -79,6 +89,7 @@ workBtnContainer.addEventListener('click', (e) => {
     ProjectContainer.classList.remove('anm-out'); 
   }, 300);
 });
+
 
 
 

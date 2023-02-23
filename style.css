@@ -127,13 +127,11 @@ p {
   margin: 0px 4px;
   cursor: pointer;
   border-radius: var(--size-border-radius);
-}
-
-.navbar__menu__item.active {
-  border: 1px solid var(--color-white);
+  border: 1px solid transparent;
 }
 
 .navbar__menu__item:hover {
+  border-color: var(--color-white);
   background-color: var(--color-dark-pink);
   transition: all var(--animation-duration) ease;
 }
@@ -321,7 +319,7 @@ justify-content: space-between;
   padding: 8px 48px;
 }
 
-.active,
+.category__btn.selected,
 .category__btn:hover {
   background-color: var(--color-pink);
 }
@@ -340,7 +338,7 @@ justify-content: space-between;
   opacity: 0;
 }
 
-.category__btn.active .catergory__count,
+.category__btn.selected .catergory__count,
 .category__btn:hover .catergory__count {
   opacity: 1;
   top: 0px;
